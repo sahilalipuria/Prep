@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><workflow xmlns="http://www.cisco.com/cfr2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fileFormatVersion="1" sdkVersion="3.3.25" xsi:schemaLocation="http://www.cisco.com/cfr2 xdeProcedure.xsd">
+    <import>system</import>
+    <import>XDE</import>
+    <parameter>$validationMap</parameter>
+    <parameter>$sourceOwningEntityID</parameter>
+    <parameter>$destinationOwningEntityID</parameter>
+    <startStep id="Step1" next="bibaishy:181022155910889">
+        <description/>
+    </startStep>
+    <returnStep id="Step2">
+        <description/>
+        <result expressionType="js"/>
+    </returnStep>
+    <javaScriptStep id="bibaishy:181022155910889" next="bibaishy:181023150755654">
+        <description/>
+        <script expressionType="js">var $msg = "";&#13;
+var $srcDeviceId = $sourceOwningEntityID.split("_")[0];&#13;
+var $destDeviceId = $destinationOwningEntityID.split("_")[0];&#13;
+&#13;
+var $productSeriesSource = inventory.get($srcDeviceId, "productSeries");&#13;
+var $productSeriesDestination = inventory.get($destDeviceId, "productSeries");&#13;
+system.log("$productSeriesSource = ",$productSeriesSource);&#13;
+system.log("$productSeriesDestination = ",$productSeriesDestination);&#13;
+&#13;
+var $enableBfdSettings = map.get($validationMap, "enableBfdSettings");&#13;
+var $wrapProtection = map.get($validationMap, "wrapProtection");&#13;
+var $enableFaultOam = map.get($validationMap, "enableFaultOam");&#13;
+var $serviceType = map.get($validationMap, "serviceType");&#13;
+&#13;
+&#13;
+</script>
+    </javaScriptStep>
+    <switchStep default="Step2" id="bibaishy:181023150755654">
+        <description/>
+        <expression expressionType="js">$serviceType</expression>
+        <caseExpression expressionType="js" next="bibaishy:181023153716459">"Unidirectional TE Tunnel"</caseExpression>
+        <caseExpression expressionType="js" next="bibaishy:181023152015187">"Bidirectional TE Tunnel"</caseExpression>
+    </switchStep>
+    <ifStep else="bibaishy:181023153927770" id="bibaishy:181023152007665" then="bibaishy:181023154033898">
+        <description/>
+        <test expressionType="js">$enableFaultOam == true</test>
+    </ifStep>
+    <ifStep else="salipuri:190925163741995" id="bibaishy:181023152015187" then="bibaishy:181023152007665">
+        <description/>
+        <test expressionType="js">($productSeriesSource == "286291049" || $productSeriesDestination == "286291049") || ($productSeriesSource == "286318884" || $productSeriesDestination == "286318884") || ($productSeriesSource == "286319267" || $productSeriesDestination == "286319267") || ($productSeriesSource == "286291029" || $productSeriesDestination == "286291029")</test>
+    </ifStep>
+    <throwStep id="bibaishy:18102315235206">
+        <description/>
+        <exname>prov.rfs.failure</exname>
+        <value expressionType="js">$msg</value>
+    </throwStep>
+    <ifStep else="Step2" id="bibaishy:181023153716459" then="bibaishy:181023161130272">
+        <description/>
+        <test expressionType="js">$productSeriesSource == "286291049" || $productSeriesSource == "286318884" || $productSeriesSource == "286319267" || $productSeriesSource == "281716314" || $productSeriesSource == "282267600"</test>
+    </ifStep>
+    <ifStep else="bibaishy:181023161130272" id="bibaishy:181023153927770" then="bibaishy:181023155010548">
+        <description/>
+        <test expressionType="js">$wrapProtection == true</test>
+    </ifStep>
+    <javaScriptStep id="bibaishy:181023154033898" next="bibaishy:181023153927770">
+        <description/>
+        <script expressionType="js">$msg = $msg + "NCS 55xx,NCS 50xx,NCS540 and NCS560 devices do not support Fault OAM. "</script>
+    </javaScriptStep>
+    <javaScriptStep id="bibaishy:181023155010548" next="bibaishy:181023161130272">
+        <description/>
+        <script expressionType="js">$msg = $msg + "NCS 55xx, NCS540 and NCS560 devices do not support Wrap Protection. "</script>
+    </javaScriptStep>
+    <ifStep else="bibaishy:181023161504522" id="bibaishy:181023161130272" then="bibaishy:181023161228880">
+        <description/>
+        <test expressionType="js">$enableBfdSettings == true</test>
+    </ifStep>
+    <javaScriptStep id="bibaishy:181023161228880" next="bibaishy:181023161504522">
+        <description/>
+        <script expressionType="js">$msg = $msg + " NCS 55xx, NCS540,ASR 1k,ASR 9k,XRv 9k and NCS560 devices do not support BFD."</script>
+    </javaScriptStep>
+    <ifStep else="Step2" id="bibaishy:181023161504522" then="bibaishy:18102315235206">
+        <description/>
+        <test expressionType="js">$msg != ""</test>
+    </ifStep>
+    <ifStep else="salipuri:190925164214672" id="salipuri:190925163741995" then="salipuri:190925164237603">
+        <description/>
+        <test expressionType="js">($productSeriesSource == "282267600" || $productSeriesDestination == "282267600")</test>
+    </ifStep>
+    <returnStep id="salipuri:190925164214672">
+        <description/>
+        <result expressionType="js"/>
+    </returnStep>
+    <ifStep else="salipuri:190925164311534" id="salipuri:190925164237603" then="salipuri:190925164324147">
+        <description/>
+        <test expressionType="js">$enableBfdSettings == true</test>
+    </ifStep>
+    <returnStep id="salipuri:190925164311534">
+        <description/>
+        <result expressionType="js"/>
+    </returnStep>
+    <javaScriptStep id="salipuri:190925164324147" next="salipuri:190925164359362">
+        <description/>
+        <script expressionType="js">$msg = $msg + " ASR 9k,XRV 9k devices do not support BFD."</script>
+    </javaScriptStep>
+    <ifStep else="salipuri:190925164435910" id="salipuri:190925164359362" then="Step2">
+        <description/>
+        <test expressionType="js">$msg == ""</test>
+    </ifStep>
+    <throwStep id="salipuri:190925164435910">
+        <description/>
+        <exname>prov.rfs.failure</exname>
+        <value expressionType="js">$msg</value>
+    </throwStep>
+</workflow>

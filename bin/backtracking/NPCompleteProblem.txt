@@ -1,0 +1,11 @@
+- N queens problem : exponential running time with backtracking
+- Coloring problem : exponential running time
+- Sudoku problem : exponential running time
+- Usually NP complete & NP hard problems are very slow to solve
+- Solution is to find approximate solution than exact solution.
+
+Meta-Heuristics:
+- Usually for NP hard problems we are looking for approx solution then exact solution
+- Methods: ant-colony optimization,genetic algo,simulated annealing
+- Not always find the optimal solution(global minimum) BUT the algo will be fast
+- THIS IS WHY ARTIFICIAL INTELLIGENCE IS IMPORTANT!!!!!

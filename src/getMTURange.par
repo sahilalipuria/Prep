@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><rules xmlns="http://www.cisco.com/cfr2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" formatVersion="2" sdkVersion="3.3.25" xsi:schemaLocation="http://www.cisco.com/cfr2 xdePalAction.xsd">
+    <action name="getL3VPNSpec.getMTURange">
+        <inputs/>
+        <outputXSD>/resources/device-capability-model.xsd</outputXSD>
+        <allowExtension>false</allowExtension>
+        <documentation/>
+        <rule>
+            <test>
+                <testItem name="software" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[IOS]]></testItem>
+                <testItem name="variant" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[XR]]></testItem>
+            </test>
+            <workflow fileFormatVersion="1" sdkVersion="3.3.25" xmlns="http://www.cisco.com/cfr2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cisco.com/cfr2 xdeProcedure.xsd">
+    <import>system</import>
+    <import>XDE</import>
+    <parameter>DEVICE_ID</parameter>
+    <startStep id="StartStep" next="OutputDeclare">
+        <description/>
+    </startStep>
+    <javaScriptStep id="OutputDeclare" next="Handler1">
+        <description/>
+        <script expressionType="js">var OUTPUTS;</script>
+    </javaScriptStep>
+    <handlerStep id="Handler1" next="Handler2">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.VelocityHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="velocityHandler.template" xsi:type="SimpleHandlerParamType">&lt;device-capability-model&gt;
+  &lt;L3VPNSpec&gt;
+	&lt;ipv4MtuMaxValue&gt;65535&lt;/ipv4MtuMaxValue&gt;  
+	&lt;ipv4MtuMinValue&gt;68&lt;/ipv4MtuMinValue&gt;
+	&lt;ipv6MtuMaxValue&gt;65535&lt;/ipv6MtuMaxValue&gt;
+	&lt;ipv6MtuMinValue&gt;1280&lt;/ipv6MtuMinValue&gt;
+	&lt;uniMtuMaxValue&gt;65535&lt;/uniMtuMaxValue&gt;
+	&lt;uniMtuMinValue&gt;64&lt;/uniMtuMinValue&gt; 
+  &lt;/L3VPNSpec&gt;
+&lt;/device-capability-model&gt;</property>
+        </handlerProperties>
+    </handlerStep>
+    <handlerStep id="Handler2" next="ReturnStep">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.transform.XSLTHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_input" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="handler_input_list" type="list" xsi:type="ListHandlerParamType"/>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS</property>
+            <property name="xslt_file" xsi:type="SimpleHandlerParamType">/resources/device-capability-model.xslt</property>
+        </handlerProperties>
+    </handlerStep>
+    <returnStep id="ReturnStep">
+        <description/>
+        <result expressionType="js">OUTPUTS</result>
+    </returnStep>
+</workflow>
+        </rule>
+        <rule>
+            <test>
+                <testItem name="software" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[IOS]]></testItem>
+                <testItem name="productSeries" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[289897987]]></testItem>
+            </test>
+            <workflow fileFormatVersion="1" sdkVersion="3.3.25" xmlns="http://www.cisco.com/cfr2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cisco.com/cfr2 xdeProcedure.xsd">
+    <import>system</import>
+    <import>XDE</import>
+    <parameter>DEVICE_ID</parameter>
+    <startStep id="StartStep" next="OutputDeclare">
+        <description/>
+    </startStep>
+    <javaScriptStep id="OutputDeclare" next="Handler1">
+        <description/>
+        <script expressionType="js">var OUTPUTS;</script>
+    </javaScriptStep>
+    <handlerStep id="Handler1" next="Handler2">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.VelocityHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="velocityHandler.template" xsi:type="SimpleHandlerParamType">&lt;device-capability-model&gt;
+  &lt;L3VPNSpec&gt;
+	&lt;ipv4MtuMaxValue&gt;1500&lt;/ipv4MtuMaxValue&gt;  
+	&lt;ipv4MtuMinValue&gt;68&lt;/ipv4MtuMinValue&gt;
+	&lt;ipv6MtuMaxValue&gt;1500&lt;/ipv6MtuMaxValue&gt;
+	&lt;ipv6MtuMinValue&gt;1280&lt;/ipv6MtuMinValue&gt;
+	&lt;uniMtuMaxValue&gt;9216&lt;/uniMtuMaxValue&gt;
+	&lt;uniMtuMinValue&gt;1500&lt;/uniMtuMinValue&gt;    
+  &lt;/L3VPNSpec&gt;
+&lt;/device-capability-model&gt;</property>
+        </handlerProperties>
+    </handlerStep>
+    <handlerStep id="Handler2" next="ReturnStep">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.transform.XSLTHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_input" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="handler_input_list" type="list" xsi:type="ListHandlerParamType"/>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS</property>
+            <property name="xslt_file" xsi:type="SimpleHandlerParamType">/resources/device-capability-model.xslt</property>
+        </handlerProperties>
+    </handlerStep>
+    <returnStep id="ReturnStep">
+        <description/>
+        <result expressionType="js">OUTPUTS</result>
+    </returnStep>
+</workflow>
+        </rule>
+        <rule>
+            <test>
+                <testItem name="software" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[IOS]]></testItem>
+            </test>
+            <workflow fileFormatVersion="1" sdkVersion="3.3.25" xmlns="http://www.cisco.com/cfr2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cisco.com/cfr2 xdeProcedure.xsd">
+    <import>system</import>
+    <import>XDE</import>
+    <parameter>DEVICE_ID</parameter>
+    <startStep id="StartStep" next="OutputDeclare">
+        <description/>
+    </startStep>
+    <javaScriptStep id="OutputDeclare" next="Handler1">
+        <description/>
+        <script expressionType="js">var OUTPUTS;</script>
+    </javaScriptStep>
+    <handlerStep id="Handler1" next="Handler2">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.VelocityHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="velocityHandler.template" xsi:type="SimpleHandlerParamType">&lt;device-capability-model&gt;&#13;
+  &lt;L3VPNSpec&gt;&#13;
+    &lt;ipv4MtuMaxValue&gt;9216&lt;/ipv4MtuMaxValue&gt;  &#13;
+	&lt;ipv4MtuMinValue&gt;68&lt;/ipv4MtuMinValue&gt;&#13;
+	&lt;ipv6MtuMaxValue&gt;9216&lt;/ipv6MtuMaxValue&gt;&#13;
+	&lt;ipv6MtuMinValue&gt;1280&lt;/ipv6MtuMinValue&gt;&#13;
+	&lt;uniMtuMaxValue&gt;9216&lt;/uniMtuMaxValue&gt;&#13;
+	&lt;uniMtuMinValue&gt;1500&lt;/uniMtuMinValue&gt; &#13;
+  &lt;/L3VPNSpec&gt;&#13;
+&lt;/device-capability-model&gt;</property>
+        </handlerProperties>
+    </handlerStep>
+    <handlerStep id="Handler2" next="ReturnStep">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.transform.XSLTHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_input" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="handler_input_list" type="list" xsi:type="ListHandlerParamType"/>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS</property>
+            <property name="xslt_file" xsi:type="SimpleHandlerParamType">/resources/device-capability-model.xslt</property>
+        </handlerProperties>
+    </handlerStep>
+    <returnStep id="ReturnStep">
+        <description/>
+        <result expressionType="js">OUTPUTS</result>
+    </returnStep>
+</workflow>
+        </rule>
+        <rule>
+            <test>
+                <testItem name="software" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[IOS]]></testItem>
+                <testItem name="sysObjectId" regex="false" type="SINGLE_MATCH" xsi:type="SingleMatchTestItemType"><![CDATA[1.3.6.1.4.1.9.1.1166]]></testItem>
+            </test>
+            <workflow fileFormatVersion="1" sdkVersion="3.3.25" xmlns="http://www.cisco.com/cfr2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cisco.com/cfr2 xdeProcedure.xsd">
+    <import>system</import>
+    <import>XDE</import>
+    <parameter>DEVICE_ID</parameter>
+    <startStep id="StartStep" next="OutputDeclare">
+        <description/>
+    </startStep>
+    <javaScriptStep id="OutputDeclare" next="Handler1">
+        <description/>
+        <script expressionType="js">var OUTPUTS;</script>
+    </javaScriptStep>
+    <handlerStep id="Handler1" next="Handler2">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.VelocityHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="velocityHandler.template" xsi:type="SimpleHandlerParamType">&lt;device-capability-model&gt;
+  &lt;L3VPNSpec&gt;
+	&lt;ipv4MtuMaxValue&gt;1500&lt;/ipv4MtuMaxValue&gt;  
+	&lt;ipv4MtuMinValue&gt;68&lt;/ipv4MtuMinValue&gt;
+	&lt;ipv6MtuMaxValue&gt;1500&lt;/ipv6MtuMaxValue&gt;
+	&lt;ipv6MtuMinValue&gt;1280&lt;/ipv6MtuMinValue&gt;
+	&lt;uniMtuMaxValue&gt;9216&lt;/uniMtuMaxValue&gt;
+	&lt;uniMtuMinValue&gt;1500&lt;/uniMtuMinValue&gt;    
+  &lt;/L3VPNSpec&gt;
+&lt;/device-capability-model&gt;</property>
+        </handlerProperties>
+    </handlerStep>
+    <handlerStep id="Handler2" next="ReturnStep">
+        <description/>
+        <handlerClass>com.cisco.nm.pal.customhandler.transform.XSLTHandler</handlerClass>
+        <handlerProperties>
+            <property name="handler_input" xsi:type="SimpleHandlerParamType">OUTPUTS_VTL</property>
+            <property name="handler_input_list" type="list" xsi:type="ListHandlerParamType"/>
+            <property name="handler_output" xsi:type="SimpleHandlerParamType">OUTPUTS</property>
+            <property name="xslt_file" xsi:type="SimpleHandlerParamType">/resources/device-capability-model.xslt</property>
+        </handlerProperties>
+    </handlerStep>
+    <returnStep id="ReturnStep">
+        <description/>
+        <result expressionType="js">OUTPUTS</result>
+    </returnStep>
+</workflow>
+        </rule>
+    </action>
+</rules>
