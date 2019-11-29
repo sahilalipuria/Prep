@@ -39,15 +39,21 @@ public class WordBreakProblem {
 		int startIndex = 0;
 		int endIndex = 0;
 		int count=0;
+		String subString;
 		
 		while(endIndex<word.length()+1) {
-			String subString = word.substring(startIndex, endIndex);
-			
+			System.out.println("startIndex:"+startIndex+":"+word.charAt(startIndex));
+			System.out.println("endIndex:"+endIndex+":"+word.charAt(endIndex));
+			if(startIndex == endIndex)
+				subString = String.valueOf(word.charAt(startIndex));
+			else
+				subString = word.substring(startIndex,endIndex);
+			System.out.println("Substring:"+subString);
 			if(startIndex == endIndex) {
 				if(wordMap.containsKey(Character.toString(word.charAt(endIndex)))) {
 					wordMap.put(Character.toString(word.charAt(endIndex)), true);
-					startIndex++;
 				}
+				startIndex++;
 			}
 			else if(wordMap.containsKey(subString)) {
 				wordMap.put(subString, true);
@@ -76,7 +82,7 @@ public class WordBreakProblem {
 		// TODO Auto-generated method stub
 
 		String dictionary[] = {"I" , "have", "Jain", "Sumit", "am", "this", "dog"};
-		String word = "IamSumit";
+		String word = "aIamSumit";
 		WordBreakProblem wordBreakProblem = new WordBreakProblem(dictionary, word);
 		wordBreakProblem.solve();
 	}

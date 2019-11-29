@@ -46,19 +46,21 @@ public class SubsetSumProblem {
 
 	public void solve(){
 		//initialize
-		for(int i=0;i<S.length+1;i++) {
+		for(int i=0;i<=S.length;i++) {
 			dpTable[i][0] = true;
 		}
 		
-		for(int rowIndex =1;rowIndex<S.length+1;rowIndex++) {
-			for(int colIndex = 1;colIndex<sum+1;colIndex++) {
+		for(int j=0;j<=sum;j++) {
+			dpTable[0][j] = false;
+		}
+		
+		for(int rowIndex =1;rowIndex<=S.length;rowIndex++) {
+			for(int colIndex = 1;colIndex<=sum;colIndex++) {
 				if(colIndex<S[rowIndex-1]) {
 					dpTable[rowIndex][colIndex] = dpTable[rowIndex-1][colIndex];
 				}
 				else {
-					if(dpTable[rowIndex-1][colIndex]== true) {
-						dpTable[rowIndex][colIndex] = dpTable[rowIndex-1][colIndex-S[rowIndex-1]];
-					}
+					dpTable[rowIndex][colIndex] = dpTable[rowIndex][colIndex-S[rowIndex-1]];
 				}
 			}
 			
@@ -67,11 +69,14 @@ public class SubsetSumProblem {
 		
 	}
 	
+	
+	
 	public void showIntegers() {
 		int colIndex = sum;
 		int rowIndex = S.length;
 		
 		while(colIndex > 0 || rowIndex >0) {
+			//System.out.println(rowIndex+"-"+colIndex+":"+S[rowIndex-1]);
 			if(dpTable[rowIndex][colIndex] == dpTable[rowIndex-1][colIndex]) {
 				rowIndex = rowIndex -1;
 			}
