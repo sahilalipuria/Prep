@@ -1,0 +1,129 @@
+/* Change color of H1 tag and add Shadow */
+h1.custom {
+  font-family: impact, sans-serif;
+  font-size: 30px;
+  color: #5aa8f5;
+  font-style: bold;
+  text-align: left;
+  text-shadow: 2px 3px 5px #444;
+}
+
+table.side {
+	width: 100%;	
+}
+
+td.side  {
+   border:1px solid #999;
+   border-collapse:collapse;
+   font-family: verdana, sans-serif;
+   font-weight: bold;
+   font-size: 12px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 4px;
+   padding-bottom: 4px;
+}
+
+td.side:hover {
+	background: #cbd3fe;	
+}
+
+.header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+
+.btn {
+  margin-left:10px;
+}
+
+.LeftPanel {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:460px;
+    width:210px;
+    float:left;
+    padding:5px; 
+    overflow-y: scroll;
+}
+
+.LeftPanelHeader {
+    background-color: #c0c0c0;
+    color:white;
+    width:183px;
+    clear:both;
+    text-align:center;
+    padding-top:3px; 
+    padding-bottom:3px; 
+}
+
+.RightPanel {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:460px;
+    width:240px;
+    float:right;
+    padding:5px; 
+}
+
+.MainBody {
+    width:600px;
+    float:left;
+    padding:10px; 
+}
+
+.footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+
+/* Label Style */
+.display {
+  font-family: verdana, sans-serif;
+  font-size: 13px;
+  color: #777;
+}
+
+.display_bold {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Label Style */
+label {
+  font-family: verdana, sans-serif;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Double Border */
+input {
+	border: 3px double #CCCCCC;
+}
+
+/* Submit Button with Hover Effect*/
+.button {
+	background-color: #3366FF;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:6px;
+	padding-bottom:6px;	
+	border-radius: 6px;
+	color: #ffffff;
+	width: 200px;
+	border:1px solid #3366FF;;
+	background-image: url(/form/images/blue_button.png);
+}
+
+.button:hover {
+	background-color: #000000;	
+	border:1px solid #000000;
+	background-image: url(/form/images/blue_button_hover.png);
+}

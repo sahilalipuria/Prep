@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>in.bench.resources</groupId>
+	<artifactId>Jersey-HeaderParam</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Jersey-HeaderParam</name>
+	<description>Jersey web service using @HeaderParam and @Context annotation</description>
+
+	<!-- Jersey repository -->
+	<repositories>
+		<repository>
+			<id>snapshot-repository.java.net</id>
+			<name>Java.net Snapshot Repository for Maven</name>
+			<url>https://maven.java.net/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<properties>
+		<jersey.version>2.12</jersey.version>
+		<jersey.scope>compile</jersey.scope>
+		<compileSource>1.7</compileSource>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<finalName>Jersey-HeaderParam</finalName>
+	</build>
+
+	<dependencies>
+		<!-- Jersey core Servlet 2.x implementation -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+			<version>${jersey.version}</version>
+			<scope>${jersey.scope}</scope>
+		</dependency>
+	</dependencies>
+</project>

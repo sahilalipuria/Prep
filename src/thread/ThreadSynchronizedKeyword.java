@@ -16,7 +16,7 @@ public class ThreadSynchronizedKeyword {
 		When the current thread exits the block, the lock is automatically released and any waiting thread can acquire that lock and enter the synchronized block:
 	 */
 	public synchronized void increment() {
-		count++;
+		count++;    
 	}
 
 	public static void main(String[] args) {

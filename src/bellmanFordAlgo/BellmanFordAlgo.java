@@ -21,7 +21,7 @@ import java.util.List;
  *		We use same technique in bubble sort
  *
  *	Cycle detection application can prove to be very important
- *	Negative cycles too - we have to run the Bellman FOrd algo that can handle negative edge weights by default
+ *	Negative cycles too - we have to run the Bellman Ford algo that can handle negative edge weights by default
  *	On Forex market it can detect arbitrage situations
  *
  */

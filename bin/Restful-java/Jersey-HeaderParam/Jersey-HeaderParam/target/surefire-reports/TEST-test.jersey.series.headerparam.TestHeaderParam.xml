@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite skipped="0" time="0" tests="0" errors="0" name="test.jersey.series.headerparam.TestHeaderParam" failures="0">
+  <properties>
+    <property value="Oracle Corporation" name="java.specification.vendor"/>
+    <property value="D:\WORKSPACE\JERSEY_WORKSPACE\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7528165604451104010.tmp" name="classworlds.conf"/>
+    <property value="1.7" name="java.vm.specification.version"/>
+    <property value="US" name="user.country"/>
+    <property value="C:\Users\RNI" name="user.home"/>
+    <property value="Java(TM) SE Runtime Environment" name="java.runtime.name"/>
+    <property value="Oracle Corporation" name="java.vm.vendor"/>
+    <property value="/D:/Downloads/Jars/eclipse-jee-luna-R-win32/eclipse/plugins/org.eclipse.m2e.maven.runtime_1.5.0.20140605-2032/jars/plexus-classworlds-2.5.1.jar" name="java.class.path"/>
+    <property value="windows" name="sun.desktop"/>
+    <property value="1.7.0_06-ea" name="java.version"/>
+    <property value="C:\Program Files\Java\jdk1.7.0_06\jre\lib\endorsed" name="java.endorsed.dirs"/>
+    <property value="Oracle Corporation" name="java.vendor"/>
+    <property value="http://java.oracle.com/" name="java.vendor.url"/>
+    <property value="Cp1252" name="file.encoding"/>
+    <property value="C:\Program Files\Java\jdk1.7.0_06\jre\bin" name="sun.boot.library.path"/>
+    <property value="23.2-b05" name="java.vm.version"/>
+    <property value="Cp1252" name="sun.jnu.encoding"/>
+    <property value="C:\Program Files\Java\jdk1.7.0_06\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" name="java.ext.dirs"/>
+    <property value="x86" name="os.arch"/>
+    <property value="Java Virtual Machine Specification" name="java.vm.specification.name"/>
+    <property value="1.7.0_06-ea-b14" name="java.runtime.version"/>
+    <property value="UnicodeLittle" name="sun.io.unicode.encoding"/>
+    <property value="sun.awt.windows.WPrinterJob" name="java.awt.printerjob"/>
+    <property value="Java Platform API Specification" name="java.specification.name"/>
+    <property value="1.7" name="java.specification.version"/>
+    <property value=";" name="path.separator"/>
+    <property value="Java HotSpot(TM) Client VM" name="java.vm.name"/>
+    <property value="6.1" name="os.version"/>
+    <property value="C:\Users\RNI\AppData\Local\Temp\" name="java.io.tmpdir"/>
+    <property value="Asia/Calcutta" name="user.timezone"/>
+    <property value="D:\WORKSPACE\JERSEY_WORKSPACE\Jersey-HeaderParam\EMBEDDED" name="maven.home"/>
+    <property value="
+" name="line.separator"/>
+    <property value="sun.awt.Win32GraphicsEnvironment" name="java.awt.graphicsenv"/>
+    <property value="Service Pack 1" name="sun.os.patch.level"/>
+    <property value="Windows 7" name="os.name"/>
+    <property value="little" name="sun.cpu.endian"/>
+    <property value="http://bugreport.sun.com/bugreport/" name="java.vendor.url.bug"/>
+    <property value="sun.io" name="file.encoding.pkg"/>
+    <property value="D:\WORKSPACE\JERSEY_WORKSPACE\Jersey-HeaderParam" name="user.dir"/>
+    <property value="RNI" name="user.name"/>
+    <property value="32" name="sun.arch.data.model"/>
+    <property value="HotSpot Client Compiler" name="sun.management.compiler"/>
+    <property value="true" name="guice.disable.misplaced.annotation.check"/>
+    <property value="\" name="file.separator"/>
+    <property value="en" name="user.language"/>
+    <property value="sun.awt.windows.WToolkit" name="awt.toolkit"/>
+    <property value="" name="user.variant"/>
+    <property value="C:\Program Files\Java\jdk1.7.0_06\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_06\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_06\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_06\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_06\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_06\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_06\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_06\jre\classes" name="sun.boot.class.path"/>
+    <property value="C:\Program Files\Java\jdk1.7.0_06\jre" name="java.home"/>
+    <property value="info" name="org.slf4j.simpleLogger.defaultLogLevel"/>
+    <property value="" name="user.script"/>
+    <property value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s D:\Downloads\Jars\apache-maven-3.2.1\conf\settings.xml install" name="sun.java.command"/>
+    <property value="mixed mode" name="java.vm.info"/>
+    <property value="C:\Program Files\Java\jdk1.7.0_06\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre8/bin/client;C:/Program Files/Java/jre8/bin;C:/Program Files/Java/jre8/lib/i386;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\DMIX;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;D:\Downloads\Jars\apache-maven-3.2.1\bin;C:\Program Files\Java\jdk1.7.0_06\bin;;D:\Downloads\Jars\eclipse-jee-luna-R-win32\eclipse;;." name="java.library.path"/>
+    <property value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86" name="sun.cpu.isalist"/>
+    <property value="51.0" name="java.class.version"/>
+    <property value="Oracle Corporation" name="java.vm.specification.vendor"/>
+    <property value="SUN_STANDARD" name="sun.java.launcher"/>
+  </properties>
+</testsuite>
