@@ -70,18 +70,15 @@ public class FirstMissingPositive {
 		if(nums == null || nums.length == 0)
         	return 1;
 		
-		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
 		HashMap< Integer, Integer> map = new HashMap<>();
 		
 		for(int num:nums) {
-			min = Math.min(min, num);
 			max = Math.max(max, num);
 			map.put(num,0);
 		}
 		
 		for(int i=1;i<=max;i++) {
-			System.out.println("i:"+i+",max:"+max);
 			if(!map.containsKey(i)) {
 				missingInt = i;
 				break;
@@ -89,8 +86,12 @@ public class FirstMissingPositive {
 				
 		}
 		
-		if(missingInt == 0)
-			missingInt = max +1;
+		if(missingInt == 0) {
+			if(max > 0)
+				missingInt = max +1;
+			else
+				missingInt = 1;
+		}
 		
 		return missingInt;
 		
