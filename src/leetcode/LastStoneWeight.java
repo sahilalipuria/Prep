@@ -69,12 +69,28 @@ public class LastStoneWeight {
         	return 0;
     }
 	
+	public static int lastStoneWeight2(int[] stones) {
+        
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b)->b-a);
+        
+        for(int stone: stones)
+            maxHeap.add(stone);
+        
+        while(maxHeap.size()!=1) {
+        	maxHeap.add(maxHeap.poll()-maxHeap.poll());
+        }
+        
+        return maxHeap.poll();
+    }
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//int[] stones = new int[]{2,7,4,1,8,1};
 		int[] stones = new int[]{2,2};
 		System.out.println(lastStoneWeight(stones));
+		System.out.println(lastStoneWeight2(stones));
+		System.out.println(lastStoneWeight(new int[]{2,7,4,1,8,1}));
+		System.out.println(lastStoneWeight2(new int[]{2,7,4,1,8,1}));
 	}
 
 }
