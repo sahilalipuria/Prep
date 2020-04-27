@@ -47,44 +47,33 @@ public class DecryptStringFromAlphabetToInteger {
 	 * @param args
 	 */
 	
-	public String decryptNumber(int number) {
-		if((number/26)>1) {
-			
-		}
-	}
-	
-	public String freqAlphabets(String s) {
+	public static String freqAlphabets(String s) {
         
-        if(s=="")
+		if(s=="")
         	return s;
         
-        String result = "";
+        StringBuilder result = new StringBuilder();
         
-        if(s.contains("#")) {
-        	String numbers[] = s.split("#");
-        	int counter = 0;
-        	for(String number: numbers) {
-        		if(s.charAt(s.length()-1)!='#' && counter == number.length()-1) {
-        			while(Integer.parseInt(number)!=0) {
-        				result += decryptNumber(Integer.parseInt(number)/10);
-        				number = "" + (Integer.parseInt(number))/10;
-        			}
-        		}else {
-        			System.out.println(number);
-                	result += decryptNumber(Integer.parseInt(number));
-                	counter++;
-        		}
-            }
-        }else {
-        	result += decryptNumber(Integer.parseInt(s));
+        for(int i=s.length()-1;i>=0;i--) {
+        	if(s.charAt(i) == '#') {
+        		String subString = s.substring(i-2, i);
+        		result.append((char)((int)'a' + Integer.parseInt(subString)-1));
+        		i -= 2;
+        	}else {
+        		result.append((char)((int)'a' + ((int)s.charAt(i)-(int)'0')-1));
+        	}
         }
         
-        return result;
+        return result.reverse().toString();
     }
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		System.out.println(freqAlphabets("10#11#12"));
+		System.out.println(freqAlphabets("1326#"));
+		System.out.println(freqAlphabets("25#"));
+		System.out.println(freqAlphabets("12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#"));
 	}
 
 }
