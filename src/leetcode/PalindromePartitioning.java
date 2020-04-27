@@ -41,11 +41,8 @@ public class PalindromePartitioning {
 		for (int i = start + 1; i <= s.length(); i++) {
 			String str = s.substring(start, i);
 			if (isPalindrome(str)) {
-				//System.out.println(str+" is a palindrome");
 				partition.add(str); 
 				addPalindrome(s, i, partition, result);
-				//System.out.println("--------"+partition);
-				//System.out.println("Removing "+partition.get(partition.size()-1));
 				partition.remove(partition.size() - 1);
 			}
 		}
@@ -84,8 +81,8 @@ public class PalindromePartitioning {
 		// TODO Auto-generated method stub
 
 		System.out.println(partition("aab"));
-		//System.out.println(partition("aaa"));
-		//System.out.println(partition("abba"));
+		System.out.println(partition("aaa"));
+		System.out.println(partition("abba"));
 	}
 
 }
