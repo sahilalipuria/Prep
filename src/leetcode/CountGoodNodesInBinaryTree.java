@@ -69,18 +69,42 @@ public class CountGoodNodesInBinaryTree {
 	 * @param args
 	 */
 	
+	private int goodNodes;
+	
+	public CountGoodNodesInBinaryTree() {
+		this.goodNodes = 0;
+	}
+	
 	public int goodNodes(TreeNode root) {
         
-		return goodNodes(root, -10000);
+		buildPaths(root,root.val);
+        
+        if(root!=null)
+		    return this.goodNodes+1;
+        else
+            return this.goodNodes;
     }
 	
-	public int goodNodes(TreeNode root, int ma) {
-        if (root == null) return 0;
-        int res = root.val >= ma ? 1 : 0;
-        res += goodNodes(root.left, Math.max(ma, root.val));
-        res += goodNodes(root.right, Math.max(ma, root.val));
-        return res;
-    }
+	public void buildPaths(TreeNode root,Integer max) {
+		
+		if(root==null)
+			return;
+	
+		if(root.left!=null){
+            if(root.left.val>=max){
+                goodNodes++;
+            } 
+            buildPaths(root.left,Math.max(max,root.left.val)); 
+        }
+		
+		if(root.right!=null){
+            if(root.right.val>=max){
+                goodNodes++;
+            }
+            buildPaths(root.right,Math.max(max,root.right.val));   
+        }
+			
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
