@@ -54,7 +54,7 @@ public class UncrossedLines {
 	
 	public static int maxUncrossedLines(int[] A, int[] B) {
 		
-int result = 0;
+		int result = 0;
         
 		int dpTable[][] = new int[A.length+1][B.length+1];
 		
