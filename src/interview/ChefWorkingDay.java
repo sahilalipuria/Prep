@@ -30,14 +30,7 @@ public class ChefWorkingDay {
 			(a, b) -> categoryMap.get(b).size() - categoryMap.get(a).size());
 	
 	public static void cook(String firstIngredient,String secondIngredient) {
-		categoryMap.get(firstIngredient).remove(0);
-		categoryMap.get(firstIngredient).remove(0);
 		
-		minHeap.remove(firstIngredient);
-		maxHeap.remove(firstIngredient);
-
-		String secondIngredient = minHeap.poll();
-		categoryMap.get(secondIngredient).remove(0);
 		minHeap.remove(secondIngredient);
 		maxHeap.remove(secondIngredient);
 
@@ -68,7 +61,9 @@ public class ChefWorkingDay {
 			}
 			if (!categoryMap.containsKey(category))
 				categoryMap.put(category, new ArrayList<>());
+			
 			categoryMap.get(category).add(i);
+			
 			if (!minHeap.contains(category)) {
 				minHeap.add(category);
 				maxHeap.add(category);
@@ -82,37 +77,20 @@ public class ChefWorkingDay {
 
 				String secondIngredient = minHeap.poll();
 				categoryMap.get(secondIngredient).remove(0);
-				minHeap.remove(secondIngredient);
-				maxHeap.remove(secondIngredient);
 
-				System.out.print(1);
-				if (categoryMap.get(category).size() > 0) {
-					minHeap.add(category);
-					maxHeap.add(category);
-				}
-				if (categoryMap.get(secondIngredient).size() > 0) {
-					minHeap.add(secondIngredient);
-					maxHeap.add(secondIngredient);
-				}
+				cook(category, secondIngredient);
+				
 			} else if (maxHeap.size() > 1 && categoryMap.get(maxHeap.peek()).size() > 1) {
 				categoryMap.get(category).remove(0);
+				
 				minHeap.remove(category);
 				maxHeap.remove(category);
 
 				String secondIngredient = maxHeap.poll();
 				categoryMap.get(secondIngredient).remove(0);
 				categoryMap.get(secondIngredient).remove(0);
-				minHeap.remove(secondIngredient);
-				maxHeap.remove(secondIngredient);
 				
-				if (categoryMap.get(category).size() > 0) {
-					minHeap.add(category);
-					maxHeap.add(category);
-				}
-				if (categoryMap.get(secondIngredient).size() > 0) {
-					minHeap.add(secondIngredient);
-					maxHeap.add(secondIngredient);
-				}
+				cook(category, secondIngredient);
 				
 			} else
 				System.out.print(0);
