@@ -62,6 +62,33 @@ public class ProductSupplyOrder {
 		return result;
 	}
 	
+	public static List<Integer> getRouteOrder2(int cityNodes, List<Integer> cityFrom, List<Integer> cityTo, int company){
+		
+		List<Integer> result = new ArrayList<Integer>();
+		List<Integer> temp;
+		
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(company);
+		
+		while(!queue.isEmpty()) {
+			int current = queue.remove();
+			temp = new ArrayList<Integer>();
+			for(int i=0;i<cityFrom.size();i++) {
+				if(cityFrom.get(i)==current) {
+					int toCity = cityTo.get(i);
+					if(!result.contains(toCity) && !queue.contains(toCity)) {
+						temp.add(toCity);
+					}
+				}
+			}
+			Collections.sort(temp);
+			queue.addAll(temp);
+			result.add(current);
+		}
+		
+		return result;
+	}	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -72,6 +99,7 @@ public class ProductSupplyOrder {
 		
 		long startTime = System.currentTimeMillis();
 		System.out.println(getRouteOrder(5, cityFrom, cityTo, company));
+		System.out.println("-------"+getRouteOrder2(5, cityFrom, cityTo, company));
 		long endTime   = System.currentTimeMillis();
 		long totalTime = endTime - startTime;
 		System.out.println(totalTime);
@@ -82,6 +110,7 @@ public class ProductSupplyOrder {
 		
 		startTime = System.currentTimeMillis();
 		System.out.println(getRouteOrder(4, cityFrom, cityTo, company));
+		System.out.println("-------"+getRouteOrder2(4, cityFrom, cityTo, company));
 		endTime   = System.currentTimeMillis();
 		totalTime = endTime - startTime;
 		System.out.println(totalTime);
