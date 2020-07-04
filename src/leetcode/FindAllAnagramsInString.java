@@ -68,6 +68,8 @@ public class FindAllAnagramsInString {
         return resultList;
     }
 	
+	//We can also use sliding window approach 
+	
 	public static void main(String[] args) {
 		System.out.println(findAnagrams("cbaebabacd", "abc"));
 		System.out.println(findAnagrams("abab", "ab"));

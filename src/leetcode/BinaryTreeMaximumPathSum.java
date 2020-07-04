@@ -56,24 +56,24 @@ public class BinaryTreeMaximumPathSum {
 	int result;
 	
 	public int dfs(TreeNode node) {
-		int resultSum =0;
-        
-        int leftHeight = (node.left!=null)?dfs(node.left):0;
-        int rightHeight = (node.right!=null)?dfs(node.right):0;
-        
-        int nodeValue = node.val;
-        
-        if(leftHeight>rightHeight)
-        	nodeValue = Math.max(nodeValue, nodeValue+leftHeight);
-        else
-        	nodeValue = Math.max(nodeValue, nodeValue+rightHeight);
-        
-        if(nodeValue > node.val+leftHeight+rightHeight) {
-        	result = Math.max(result, nodeValue);
-        }else
-        	result = Math.max(result, node.val+leftHeight+rightHeight);
-        
-        return nodeValue;
+		int resultSum = 0;
+
+		int leftHeight = (node.left != null) ? dfs(node.left) : 0;
+		int rightHeight = (node.right != null) ? dfs(node.right) : 0;
+
+		int nodeValue = node.val;
+
+		if (leftHeight > rightHeight)
+			nodeValue = Math.max(nodeValue, nodeValue + leftHeight);
+		else
+			nodeValue = Math.max(nodeValue, nodeValue + rightHeight);
+
+		if (nodeValue > node.val + leftHeight + rightHeight) {
+			result = Math.max(result, nodeValue);
+		} else
+			result = Math.max(result, node.val + leftHeight + rightHeight);
+
+		return nodeValue;
 	}
 	
 	public int maxPathSum(TreeNode root) {
