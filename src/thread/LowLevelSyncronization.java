@@ -94,7 +94,8 @@ public class LowLevelSyncronization {
 			e.printStackTrace();
 		}
 
-
+		System.out.println("Finished....");
+		
 	}
 
 }

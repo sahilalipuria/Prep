@@ -56,7 +56,6 @@ public class ProducerConsumer {
 	
 	private static void consumer() throws InterruptedException {
 		Random random = new Random();
-		
 		while(true) {
 			Thread.sleep(100);
 			if(random.nextInt(10)==0) {

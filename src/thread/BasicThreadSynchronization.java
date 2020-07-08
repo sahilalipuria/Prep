@@ -20,7 +20,7 @@ class Processor extends Thread{
 	}
 	
 	public void shutdown() {
-		this.running = false;	
+		this.running = false;
 	}
 }
 
