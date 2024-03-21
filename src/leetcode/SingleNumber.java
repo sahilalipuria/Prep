@@ -29,6 +29,15 @@ public class SingleNumber {
 	/**
 	 * @param args
 	 */
+
+    public static int singleNumber2(int[] nums) {
+        int result = 0;
+        for(int num:nums){
+            result ^= num;
+        }
+
+        return result;
+    }
 	
 	public static int singleNumber(int[] nums) {
         if(nums == null || nums.length == 0)
@@ -50,7 +59,7 @@ public class SingleNumber {
 		// TODO Auto-generated method stub
 
 		int[] nums = new int[] {4,1,2,1,2};
-		int result = singleNumber(nums);
+		int result = singleNumber2(nums);
 		
 		System.out.println(result);
 		
